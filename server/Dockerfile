@@ -1,15 +1,19 @@
-# Dockerfile עבור server
 FROM node:16
 
+# הגדרת ספריית העבודה
 WORKDIR /app
 
-# התקנת תלויות
+# העתקת קבצי package.json ו-lock להתקנת תלויות
 COPY package*.json ./
+
+# התקנת תלויות
 RUN npm install
 
-
-# העתקת קוד האפליקציה
+# העתקת כל הקבצים הנותרים
 COPY . .
 
+# חשיפת הפורט שבו השרת יפעל
 EXPOSE 4000
-CMD ["npm", "start"]
+
+# הפקודה להרצת השרת במצב פיתוח
+CMD ["npm", "run", "dev"]
