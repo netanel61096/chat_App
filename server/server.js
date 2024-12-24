@@ -8,10 +8,9 @@ import { Server } from 'socket.io';
 import userRoutes from './server/routes/userRoutes.js';
 import roomRoutes from './server/routes/roomRoutes.js';
 import messageRoutes from './server/routes/messageRoutes.js';
-import chatRoutes from './server/routes/chatRoutes.js'
-import { log } from 'console';
+import chatRoutes from './server/routes/chatRoutes.js';
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT ;
 
 
 dotenv.config();
@@ -20,9 +19,9 @@ connectDB();
 const app = express();
 
 app.use(cors({
-    origin: "*", // כתובת ה-Frontend שמורשה לגשת לשרת
-    methods: ["GET", "POST", "PUT", "DELETE"], // שיטות HTTP שמורשות
-    credentials: true, // אם נדרש לשלוח עוגיות או פרטי התחברות
+    origin: "*", 
+    methods: ["GET", "POST", "PUT", "DELETE"], 
+    credentials: true, 
 }));
 
 app.use(express.json())
