@@ -1,0 +1,19 @@
+.Home{
+    display: flex;
+    height: 100vh;
+}
+.ChatList{
+    width: 30%;
+    
+    border-right: 2px lightgray solid;
+}
+.ChatBox{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+.noChats{
+    align-items: center;
+    margin-top: 20%;
+}
+
