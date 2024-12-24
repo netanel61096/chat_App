@@ -10,7 +10,7 @@ import roomRoutes from './server/routes/roomRoutes.js';
 import messageRoutes from './server/routes/messageRoutes.js';
 import chatRoutes from './server/routes/chatRoutes.js';
 
-const PORT = process.env.PORT ;
+const PORT = process.env.PORT || 6000;
 
 
 dotenv.config();

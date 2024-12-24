@@ -5,14 +5,14 @@ services:
     build:
       context: ./server
     ports:
-      - "5000:5000" # חשיפת השרת
+      - "6000:6000" # חשיפת השרת
     env_file:
       - ./server/.env
     depends_on:
       - mongo
-    volumes:
-      - ./server:/app # כדי לאפשר שינויים בזמן אמת בקוד
-    command: ["npm", "run", "start"] # הפקודה המתאימה לשרת שלך
+    networks:
+      - app_network
+    command: ["npm", "run", "start"]
 
   client:
     build:
@@ -20,9 +20,9 @@ services:
     ports:
       - "3000:80" # חשיפת הקליינט
     environment:
-      - REACT_APP_SERVER_URL=http://server:5000
-    volumes:
-      - ./client:/app # כדי לאפשר שינויים בזמן אמת בקוד
+      - REACT_APP_SERVER_URL=http://server:6000
+    networks:
+      - app_network
 
   mongo:
     image: mongo
@@ -31,6 +31,11 @@ services:
       - "27017:27017" # חשיפת MongoDB
     volumes:
       - mongo-data:/data/db
+    networks:
+      - app_network
+
+networks:
+  app_network:
 
 volumes:
   mongo-data:
