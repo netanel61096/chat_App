@@ -1,13 +1,13 @@
 import User from "../models/userModel.js";
 import Message from '../models/messageModel.js';
 import Room from '../models/roomModel.js';
-import bcrypt from "bcrypt";
+import bcryptjs from "bcryptjs";
 import jwt from 'jsonwebtoken'
 
 
 export const registerUser = async (req, res) => {
   const { username, email, password } = req.body;
-  const hashedPassword = await bcrypt.hash(password, 10);
+  const hashedPassword = await bcryptjs.hash(password, 10);
   const user = new User({ username, email, password: hashedPassword });
 
   try {
@@ -28,7 +28,7 @@ export const loginUser = async (req, res) => {
         return res.status(400).json({ message: "User not found" });
       }
 
-      const isPasswordValid = await bcrypt.compare(password, user.password);
+      const isPasswordValid = await bcryptjs.compare(password, user.password);
 
       if (!isPasswordValid) {
         return res.status(400).json({ message: "Invalid credentials" });

@@ -21,7 +21,7 @@ services:
       - REACT_APP_SERVER_URL=http://localhost:4000
     volumes:
       - ./client:/app # כדי לאפשר שינויים בזמן אמת בקוד
-    command: ["npx", "serve", "-s", "build"] # או הפקודה המתאימה לקליינט שלך
+    command: ["run", "serve"] # שימוש ב-npm run serve
 
   mongo:
     image: mongo

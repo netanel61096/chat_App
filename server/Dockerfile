@@ -1,7 +1,15 @@
+# Dockerfile עבור server
 FROM node:16
+
 WORKDIR /app
+
+# התקנת תלויות
 COPY package*.json ./
 RUN npm install
+
+
+# העתקת קוד האפליקציה
 COPY . .
-CMD ["npm", "run", "start"] # או הפקודה המתאימה לשרת שלך
+
 EXPOSE 4000
+CMD ["npm", "start"]

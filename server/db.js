@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 
-const MONGO_URI = "mongodb://localhost:27017/chat-app";
+const MONGO_URI = "mongodb://mongo:27017/chat-app";
 
 const connectDB = async () => {
   try {
