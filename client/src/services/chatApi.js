@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:6000/api";
+const API_BASE_URL = "http://localhost:7000/api";
 
 export const fetchChats = async () => {
   const tokenString = localStorage.getItem("token");

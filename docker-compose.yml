@@ -5,14 +5,14 @@ services:
     build:
       context: ./server
     ports:
-      - "6000:6000" # חשיפת השרת
-    env_file:
-      - ./server/.env
+      - "7000:7000" # חשיפת ה-API למחשב המארח
+    volumes:
+      - .:/server
+      - /server/node_modules # מניעת בעיות עם node_modules
     depends_on:
       - mongo
     networks:
       - app_network
-    command: ["npm", "run", "start"]
 
   client:
     build:
@@ -20,7 +20,7 @@ services:
     ports:
       - "3000:80" # חשיפת הקליינט
     environment:
-      - REACT_APP_SERVER_URL=http://server:6000
+      - REACT_APP_SERVER_URL=http://localhost:7000
     networks:
       - app_network
 

@@ -13,7 +13,8 @@ RUN npm install
 COPY . .
 
 # חשיפת הפורט שבו השרת יפעל
-EXPOSE 6000
+EXPOSE 7000
 
 # הפקודה להרצת השרת במצב פיתוח
-CMD ["npm", "run", "dev"]
+CMD ["npm", "start"]
+

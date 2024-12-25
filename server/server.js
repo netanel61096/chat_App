@@ -10,7 +10,7 @@ import roomRoutes from './server/routes/roomRoutes.js';
 import messageRoutes from './server/routes/messageRoutes.js';
 import chatRoutes from './server/routes/chatRoutes.js';
 
-const PORT = process.env.PORT || 6000;
+const PORT = process.env.PORT || 7000;
 
 
 dotenv.config();
@@ -91,6 +91,7 @@ io.on("connection", (socket) => {
     });
 });
 
-server.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+server.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server is running on http://0.0.0.0:${PORT}`);
 });
+
